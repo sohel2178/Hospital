@@ -7,4 +7,7 @@ package com.baudiabatash.hospital.Utility;
 public class Constant {
 
     public static final String HOME="Home";
+
+
+    public static final String PATIENT_LIST="PATIENT_LIST";
 }

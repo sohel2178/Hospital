@@ -3,7 +3,8 @@ package com.baudiabatash.hospital.Utility;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 /**
@@ -53,6 +54,35 @@ public class UserLocalStore {
 
     public String getUserName(){
         return userLocalDatabase.getString("username","");
+    }
+
+
+    public void setPatientList(String patientList){
+        SharedPreferences.Editor spEditor = userLocalDatabase.edit();
+        spEditor.putString(Constant.PATIENT_LIST,patientList);
+        spEditor.apply();
+    }
+
+
+    public String getPatientList(){
+        return userLocalDatabase.getString(Constant.PATIENT_LIST,null);
+    }
+
+
+    public void addPatient(int id,String patient){
+        JSONObject root;
+
+        try{
+            if(getPatientList()==null){
+                root = new JSONObject();
+            }else{
+                root = new JSONObject(getPatientList());
+            }
+
+            root.put(String.valueOf(id),patient);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 
