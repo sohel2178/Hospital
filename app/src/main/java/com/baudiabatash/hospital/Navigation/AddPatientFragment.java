@@ -138,6 +138,8 @@ public class AddPatientFragment extends Fragment implements View.OnClickListener
         super.onDestroy();
 
         closeDatabase();
+
+        //lll
     }
 
     private void closeDatabase() {
