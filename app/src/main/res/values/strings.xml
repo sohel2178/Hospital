@@ -5,6 +5,10 @@
     <string name="drawer_close">Close</string>
 
     <string name="icon_home">{fa-home}</string>
+    <string name="icon_profile">{fa-user}</string>
+    <string name="icon_add">{fa-plus}</string>
+    <string name="icon_list">{fa-list}</string>
+    <string name="icon_calendar">{fa-calendar}</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -80,6 +80,35 @@ public class UserLocalStore {
             }
 
             root.put(String.valueOf(id),patient);
+            setPatientList(root.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void setDoctorList(String doctorList){
+        SharedPreferences.Editor spEditor = userLocalDatabase.edit();
+        spEditor.putString(Constant.DOCTOR_LIST,doctorList);
+        spEditor.apply();
+    }
+
+    public String getDoctorList(){
+        return userLocalDatabase.getString(Constant.DOCTOR_LIST,null);
+    }
+
+    public void addDoctor(int id,String doctor){
+        JSONObject root;
+
+        try{
+            if(getDoctorList()==null){
+                root = new JSONObject();
+            }else{
+                root = new JSONObject(getDoctorList());
+            }
+
+            root.put(String.valueOf(id),doctor);
+            setDoctorList(root.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -18,6 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.baudiabatash.hospital.Navigation.AddDoctorFragment;
+import com.baudiabatash.hospital.Navigation.AddPatientFragment;
+import com.baudiabatash.hospital.Navigation.DoctorListFragment;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
@@ -39,6 +42,8 @@ public class NavigationDrawer extends Fragment implements View.OnClickListener {
     private boolean mFromSavedInstanceState;
 
     private View containerView;
+
+    private LinearLayout rlAddPatient,rlAddDoctor,rlAllDoctors;
 
 
 
@@ -73,14 +78,25 @@ public class NavigationDrawer extends Fragment implements View.OnClickListener {
         View view= inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
         //Initialize View
 
+        initView(view);
+
         return view;
     }
 
+    private void initView(View view) {
+        rlAddPatient = (LinearLayout) view.findViewById(R.id.add_patient);
+        rlAddDoctor = (LinearLayout) view.findViewById(R.id.add_doctor);
+        rlAllDoctors = (LinearLayout) view.findViewById(R.id.doctor_list);
+    }
 
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        rlAddPatient.setOnClickListener(this);
+        rlAddDoctor.setOnClickListener(this);
+        rlAllDoctors.setOnClickListener(this);
 
 
     }
@@ -152,6 +168,29 @@ public class NavigationDrawer extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.add_patient:
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+                getFragmentManager().beginTransaction().replace(R.id.main_container,new AddPatientFragment())
+                        .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).commit();
+                break;
+
+
+            case R.id.add_doctor:
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+
+                getFragmentManager().beginTransaction().replace(R.id.main_container,new AddDoctorFragment())
+                        .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).commit();
+                break;
+
+            case R.id.doctor_list:
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+
+                getFragmentManager().beginTransaction().replace(R.id.main_container,new DoctorListFragment())
+                        .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).commit();
+                break;
+        }
 
 
 
