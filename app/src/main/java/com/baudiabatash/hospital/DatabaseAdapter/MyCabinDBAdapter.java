@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.baudiabatash.hospital.Model.Cabin;
 import com.baudiabatash.hospital.Model.Doctor;
@@ -117,6 +118,10 @@ public class MyCabinDBAdapter {
     private Cursor getAllRows(){
         String where = null;
         Cursor c=db.query(true,TABLE_NAME,ALL_KEYS,where,null,null,null,null,null);
+
+        if(c==null){
+            Log.d(TAG,"NULL");
+        }
 
         if(c!= null){
             c.moveToFirst();

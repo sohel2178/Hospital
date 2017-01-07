@@ -25,7 +25,7 @@ public class MyEditText extends EditText implements View.OnFocusChangeListener {
         this.context=context;
         this.setBackground(ResourcesCompat.getDrawable(context.getResources(), R.drawable.edit_text_background_deselect,null));
         this.setOnFocusChangeListener(this);
-        this.setPadding(10,5,5,5);
+        this.setPadding(16,5,5,5);
 
 
         //this.setHeight(80);

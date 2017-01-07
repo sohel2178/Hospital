@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.baudiabatash.hospital.Model.Doctor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Sohel on 1/7/2017.
  */
@@ -84,12 +87,16 @@ public class MyDoctorDBAdapter {
         return insertRow(doctor.getName(),doctor.getDesignation(),doctor.getDegree(),doctor.getOrganization());
     }
 
-    public boolean deleteRow(long rowId){
+    public boolean deleteDoctor(int id){
+        return deleteRow(id);
+    }
+
+    private boolean deleteRow(long rowId){
         String where = KEY_ROW_ID+"="+rowId;
         return db.delete(TABLE_NAME,where,null) != 0;
     }
 
-    public Cursor getAllRows(){
+    private Cursor getAllRows(){
         String where = null;
         Cursor c=db.query(true,TABLE_NAME,ALL_KEYS,where,null,null,null,null,null);
 
@@ -97,6 +104,24 @@ public class MyDoctorDBAdapter {
             c.moveToFirst();
         }
         return c;
+    }
+
+    public List<Doctor> getAllDoctors(){
+
+        List<Doctor> doctorList = new ArrayList<>();
+
+        Cursor cursor = getAllRows();
+
+        if(cursor.moveToFirst()){
+            do{
+                Doctor doctor = new Doctor(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
+                doctorList.add(doctor);
+
+            }while (cursor.moveToNext());
+        }
+
+        return doctorList;
+
     }
 
     public void deleteAll(){

@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DoctorListFragment extends Fragment {
+public class DoctorListFragment extends Fragment implements DoctorAdapter.DoctorListener {
 
     private RecyclerView rvDoctors;
 
@@ -44,12 +44,14 @@ public class DoctorListFragment extends Fragment {
 
         openDb();
         doctorList = new ArrayList<>();
+        doctorList.addAll(dbDoctor.getAllDoctors());
         adapter = new DoctorAdapter(getActivity(),doctorList);
 
-        getAllDoctors();
+        adapter.setDoctorListener(this);
+
     }
 
-    private void getAllDoctors() {
+    /*private void getAllDoctors() {
         Cursor cursor = dbDoctor.getAllRows();
 
         if(cursor.moveToFirst()){
@@ -57,7 +59,6 @@ public class DoctorListFragment extends Fragment {
                 int id = cursor.getInt(0);
                 String name = cursor.getString(1);
                 String designation = cursor.getString(2);
-                Log.d("TEST",designation);
                 String degree = cursor.getString(3);
                 String organization = cursor.getString(4);
 
@@ -70,7 +71,7 @@ public class DoctorListFragment extends Fragment {
         }
 
         adapter.notifyDataSetChanged();
-    }
+    }*/
 
     private void openDb() {
         dbDoctor = new MyDoctorDBAdapter(getActivity());
@@ -101,4 +102,18 @@ public class DoctorListFragment extends Fragment {
     }
 
 
+    @Override
+    public void updateItem(int position) {
+
+    }
+
+    @Override
+    public void deleteItem(int position) {
+        Doctor doctor = doctorList.get(position);
+        int id = doctor.getId();
+        if(dbDoctor.deleteDoctor(id)){
+            adapter.removeItem(doctor);
+        }
+
+    }
 }

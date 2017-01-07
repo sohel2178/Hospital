@@ -41,6 +41,7 @@
             android:layout_toLeftOf="@+id/calendar"
             android:layout_centerVertical="true"
             android:hint="Select Admission Date"
+            android:focusable="false"
             android:id="@+id/date"/>
 
     </RelativeLayout>
@@ -51,7 +52,6 @@
         android:layout_height="42dp"
         android:layout_below="@+id/date_con"
         android:hint="Patient Id"
-        android:textAllCaps="true"
         android:id="@+id/patient_id"/>
 
     <com.baudiabatash.hospital.CustomView.MyEditText
@@ -60,7 +60,6 @@
         android:layout_height="42dp"
         android:layout_below="@+id/patient_id"
         android:hint="Patient Name"
-        android:textAllCaps="true"
         android:id="@+id/patient_name"/>
 
     <com.baudiabatash.hospital.CustomView.MyEditText
@@ -69,7 +68,6 @@
         android:layout_height="42dp"
         android:layout_below="@+id/patient_name"
         android:hint="Guardian Name"
-        android:textAllCaps="true"
         android:id="@+id/guardian_name"/>
 
     <com.baudiabatash.hospital.CustomView.MyEditText
@@ -78,8 +76,73 @@
         android:layout_height="42dp"
         android:layout_below="@+id/guardian_name"
         android:hint="Address"
-        android:textAllCaps="true"
         android:id="@+id/address"/>
+
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/edit_text_background_deselect"
+        android:id="@+id/doctor_container"
+        android:layout_below="@+id/address">
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Reference Doctor"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/sp_ref_doctor">
+
+        </Spinner>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/edit_text_background_deselect"
+        android:id="@+id/cabin_container"
+        android:layout_below="@+id/doctor_container">
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Cabin"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/sp_cabin">
+
+        </Spinner>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="add"
+        android:background="@drawable/button_back"
+        android:textColor="@color/text_color_white"
+        android:id="@+id/add"
+        android:layout_below="@+id/cabin_container"/>
 
 
 

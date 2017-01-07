@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.baudiabatash.hospital.Navigation.AddCabinFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center"
+        android:textColor="@color/text_color_white"
+        android:background="@color/colorPrimary"
+        android:padding="6dp"
+        android:textSize="20sp"
+        android:text="Add Cabin"
+        android:id="@+id/title"/>
+
+    <com.baudiabatash.hospital.CustomView.MyEditText
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:hint="Enter Cabin Name"
+        android:id="@+id/cabin_name"
+        android:layout_below="@+id/title"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        android:layout_below="@+id/cabin_name">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cancel"
+            android:id="@+id/cancel"
+            android:background="@drawable/button_back"
+            android:textColor="@color/text_color_white"/>
+
+        <Button
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/add"
+            android:background="@drawable/button_back"
+            android:textColor="@color/text_color_white"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

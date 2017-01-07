@@ -6,28 +6,52 @@ package com.baudiabatash.hospital.Model;
 
 public class Patient {
 
+    private int id;
     private String patient_id;
     private String admission_date;
     private String patient_name;
     private String guardian_name;
     private String address;
-    private String ref_doctor;
-    private String allotted_cabin;
+    private int ref_doctor_id;
+    private int allocated_cabin_id;
 
 
     public Patient() {
     }
 
-    public Patient(String patient_id, String admission_date, String patient_name, String guardian_name, String address, String ref_doctor, String allotted_cabin) {
+    public Patient(String patient_id, String admission_date, String patient_name, String guardian_name, String address, int ref_doctor_id, int allocated_cabin_id) {
         this.patient_id = patient_id;
         this.admission_date = admission_date;
         this.patient_name = patient_name;
         this.guardian_name = guardian_name;
         this.address = address;
-        this.ref_doctor = ref_doctor;
-        this.allotted_cabin = allotted_cabin;
+        this.ref_doctor_id = ref_doctor_id;
+        this.allocated_cabin_id = allocated_cabin_id;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getRef_doctor_id() {
+        return ref_doctor_id;
+    }
+
+    public void setRef_doctor_id(int ref_doctor_id) {
+        this.ref_doctor_id = ref_doctor_id;
+    }
+
+    public int getAllocated_cabin_id() {
+        return allocated_cabin_id;
+    }
+
+    public void setAllocated_cabin_id(int allocated_cabin_id) {
+        this.allocated_cabin_id = allocated_cabin_id;
+    }
 
     public String getPatient_id() {
         return patient_id;
@@ -69,19 +93,5 @@ public class Patient {
         this.address = address;
     }
 
-    public String getRef_doctor() {
-        return ref_doctor;
-    }
 
-    public void setRef_doctor(String ref_doctor) {
-        this.ref_doctor = ref_doctor;
-    }
-
-    public String getAllotted_cabin() {
-        return allotted_cabin;
-    }
-
-    public void setAllotted_cabin(String allotted_cabin) {
-        this.allotted_cabin = allotted_cabin;
-    }
 }
