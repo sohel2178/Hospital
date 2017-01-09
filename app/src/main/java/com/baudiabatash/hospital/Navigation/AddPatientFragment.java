@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.baudiabatash.hospital.Adapter.CabinSpinnerAdapter;
 import com.baudiabatash.hospital.Adapter.DoctorSpinnerAdapter;
 import com.baudiabatash.hospital.DatabaseAdapter.MyCabinDBAdapter;
 import com.baudiabatash.hospital.DatabaseAdapter.MyDoctorDBAdapter;
@@ -44,6 +45,7 @@ public class AddPatientFragment extends Fragment implements View.OnClickListener
     private List<Doctor> doctorList;
 
     DoctorSpinnerAdapter doctorAdapter;
+    CabinSpinnerAdapter cabinAdapter;
 
 
 
@@ -63,6 +65,10 @@ public class AddPatientFragment extends Fragment implements View.OnClickListener
 
         doctorList.addAll(dbDoctor.getAllDoctors());
         doctorAdapter = new DoctorSpinnerAdapter(getActivity(),R.layout.single_doctor_spinner,doctorList);
+
+        cabinList.addAll(dbCabin.getAllEmptyCabin());
+        cabinAdapter= new CabinSpinnerAdapter(getActivity(),R.layout.single_doctor_spinner,cabinList);
+
     }
 
     private void openDatabase() {
@@ -96,6 +102,7 @@ public class AddPatientFragment extends Fragment implements View.OnClickListener
         btnAdd = (Button) view.findViewById(R.id.add);
 
         spDoctors.setAdapter(doctorAdapter);
+        spCabins.setAdapter(cabinAdapter);
 
     }
 
@@ -139,7 +146,6 @@ public class AddPatientFragment extends Fragment implements View.OnClickListener
 
         closeDatabase();
 
-        //lll
     }
 
     private void closeDatabase() {

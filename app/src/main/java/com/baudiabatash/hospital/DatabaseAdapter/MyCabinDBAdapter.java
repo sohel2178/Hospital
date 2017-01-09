@@ -101,6 +101,24 @@ public class MyCabinDBAdapter {
         return cabinList;
     }
 
+    public List<Cabin> getAllEmptyCabin(){
+        List<Cabin> emptyCabinList = new ArrayList<>();
+
+        Cursor cursor = getAllEmptyRows();
+
+        if(cursor.moveToFirst()){
+            do{
+                Cabin cabin = new Cabin(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3));
+                emptyCabinList.add(cabin);
+
+            }while (cursor.moveToNext());
+        }
+
+        return emptyCabinList;
+
+
+    }
+
     public boolean updateCabin(Cabin cabin){
         return updateRow(cabin.getId(),cabin.getName(),cabin.getAllocated_patient_id(),cabin.getStatus());
     }
@@ -126,6 +144,17 @@ public class MyCabinDBAdapter {
         if(c!= null){
             c.moveToFirst();
         }
+        return c;
+    }
+
+    private Cursor getAllEmptyRows(){
+        String where = KEY_ROW_STATUS+"="+0;
+        Cursor c=db.query(true,TABLE_NAME,ALL_KEYS,where,null,null,null,null,null);
+
+        if(c!=null){
+            c.moveToFirst();
+        }
+
         return c;
     }
 

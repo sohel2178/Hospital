@@ -44,6 +44,8 @@
             android:padding="8dp"
             android:layout_width="match_parent"
             android:id="@+id/home"
+            android:clickable="true"
+            android:background="@drawable/custom_bg"
             android:layout_height="wrap_content">
 
             <com.joanzapata.iconify.widget.IconTextView
@@ -72,6 +74,8 @@
         <LinearLayout
             android:padding="8dp"
             android:id="@+id/profile"
+            android:clickable="true"
+            android:background="@drawable/custom_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -101,6 +105,8 @@
         <LinearLayout
             android:padding="8dp"
             android:id="@+id/add_patient"
+            android:clickable="true"
+            android:background="@drawable/custom_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -130,6 +136,8 @@
         <LinearLayout
             android:padding="8dp"
             android:id="@+id/add_doctor"
+            android:clickable="true"
+            android:background="@drawable/custom_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -160,6 +168,8 @@
         <LinearLayout
             android:padding="8dp"
             android:id="@+id/add_cabin"
+            android:clickable="true"
+            android:background="@drawable/custom_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -190,6 +200,8 @@
         <LinearLayout
             android:padding="8dp"
             android:id="@+id/doctor_list"
+            android:clickable="true"
+            android:background="@drawable/custom_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -220,6 +232,8 @@
         <LinearLayout
             android:padding="8dp"
             android:id="@+id/cabin_list"
+            android:clickable="true"
+            android:background="@drawable/custom_bg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
