@@ -59,6 +59,12 @@ public class CabinAdapter extends RecyclerView.Adapter<CabinAdapter.CabinViewHol
 
     }
 
+    public void addCabin(Cabin cabin){
+        cabinList.add(cabin);
+        int position = cabinList.indexOf(cabin);
+        notifyItemInserted(position);
+    }
+
     @Override
     public int getItemCount() {
         return cabinList.size();

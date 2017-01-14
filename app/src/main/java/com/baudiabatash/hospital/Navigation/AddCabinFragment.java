@@ -1,11 +1,14 @@
 package com.baudiabatash.hospital.Navigation;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +36,7 @@ public class AddCabinFragment extends DialogFragment implements View.OnClickList
 
 
 
+
     public AddCabinFragment() {
         // Required empty public constructor
     }
@@ -48,6 +52,7 @@ public class AddCabinFragment extends DialogFragment implements View.OnClickList
         dbCabin = new MyCabinDBAdapter(getActivity());
         dbCabin.open();
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +96,11 @@ public class AddCabinFragment extends DialogFragment implements View.OnClickList
 
                 if(dbCabin.insertCabin(cabin)>0){
                     Toast.makeText(getActivity(), "Cabin Added Successfully to Database", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent();
+                    intent.putExtra("cabinName",cabinName);
+                    getTargetFragment().onActivityResult(12, Activity.RESULT_OK,intent);
+
                     getDialog().dismiss();
                 }
 
@@ -107,4 +117,6 @@ public class AddCabinFragment extends DialogFragment implements View.OnClickList
         super.onDestroy();
         dbCabin.close();
     }
+
+
 }

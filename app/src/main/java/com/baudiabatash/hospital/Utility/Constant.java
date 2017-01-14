@@ -14,4 +14,13 @@ public class Constant {
     public static final String PATIENT_LIST="PATIENT_LIST";
     public static final String DOCTOR_LIST="DOCTOR_LIST";
 
+
+    public static final String PATIENT="PATIENT";
+    public static final String DOCTOR_NAME="DOCTOR_NAME";
+    public static final String CABIN_NAME="CABIN_NAME";
+    public static final String PATIENT_ID="PATIENT_ID";
+
+    //
+
+
 }

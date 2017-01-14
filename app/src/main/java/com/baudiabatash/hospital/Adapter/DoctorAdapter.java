@@ -51,6 +51,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
 
         holder.tvName.setText(doctor.getName());
         holder.tvDesignation.setText(doctor.getDesignation());
+        holder.tvContact.setText(doctor.getContact());
         holder.tvDegree.setText(doctor.getDegree());
         holder.tvOrganization.setText(doctor.getOrganization());
 
@@ -63,8 +64,8 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
 
     public class DoctorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView tvName,tvDesignation,tvDegree,tvOrganization;
-        Button btnDelete,btnUpdate;
+        TextView tvName,tvDesignation,tvDegree,tvContact,tvOrganization;
+        Button btnUpdate;
 
         public DoctorViewHolder(View itemView) {
             super(itemView);
@@ -73,11 +74,10 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
             tvDesignation = (TextView) itemView.findViewById(R.id.designation);
             tvDegree = (TextView) itemView.findViewById(R.id.degree);
             tvOrganization = (TextView) itemView.findViewById(R.id.organization);
+            tvContact = (TextView) itemView.findViewById(R.id.contact);
 
-            btnDelete = (Button) itemView.findViewById(R.id.delete);
             btnUpdate = (Button) itemView.findViewById(R.id.update);
 
-            btnDelete.setOnClickListener(this);
             btnUpdate.setOnClickListener(this);
         }
 
@@ -90,11 +90,6 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
                     }
                     break;
 
-                case R.id.delete:
-                    if(listener!= null){
-                        listener.deleteItem(getAdapterPosition());
-                    }
-                    break;
             }
 
         }
@@ -102,7 +97,6 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorView
 
     public interface DoctorListener{
         public void updateItem(int position);
-        public void deleteItem(int position);
     }
 
 

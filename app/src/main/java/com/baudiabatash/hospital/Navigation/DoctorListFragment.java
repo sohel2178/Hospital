@@ -4,7 +4,10 @@ package com.baudiabatash.hospital.Navigation;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,14 +26,17 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DoctorListFragment extends Fragment implements DoctorAdapter.DoctorListener {
+public class DoctorListFragment extends Fragment implements DoctorAdapter.DoctorListener,View.OnClickListener {
 
     private RecyclerView rvDoctors;
+    private FloatingActionButton fabAdd;
 
     private List<Doctor> doctorList;
     private DoctorAdapter adapter;
 
     private MyDoctorDBAdapter dbDoctor;
+
+    private ActionBar actionBar;
 
 
     public DoctorListFragment() {
@@ -42,6 +48,8 @@ public class DoctorListFragment extends Fragment implements DoctorAdapter.Doctor
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+
         openDb();
         doctorList = new ArrayList<>();
         doctorList.addAll(dbDoctor.getAllDoctors());
@@ -51,27 +59,7 @@ public class DoctorListFragment extends Fragment implements DoctorAdapter.Doctor
 
     }
 
-    /*private void getAllDoctors() {
-        Cursor cursor = dbDoctor.getAllRows();
 
-        if(cursor.moveToFirst()){
-            do{
-                int id = cursor.getInt(0);
-                String name = cursor.getString(1);
-                String designation = cursor.getString(2);
-                String degree = cursor.getString(3);
-                String organization = cursor.getString(4);
-
-                Doctor doctor = new Doctor(id,name,designation,degree,organization);
-
-                doctorList.add(doctor);
-
-
-            }while (cursor.moveToNext());
-        }
-
-        adapter.notifyDataSetChanged();
-    }*/
 
     private void openDb() {
         dbDoctor = new MyDoctorDBAdapter(getActivity());
@@ -99,8 +87,17 @@ public class DoctorListFragment extends Fragment implements DoctorAdapter.Doctor
         rvDoctors = (RecyclerView) view.findViewById(R.id.rv_doctors);
         rvDoctors.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvDoctors.setAdapter(adapter);
+
+        fabAdd = (FloatingActionButton) view.findViewById(R.id.add);
+
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        fabAdd.setOnClickListener(this);
+    }
 
     @Override
     public void updateItem(int position) {
@@ -108,12 +105,16 @@ public class DoctorListFragment extends Fragment implements DoctorAdapter.Doctor
     }
 
     @Override
-    public void deleteItem(int position) {
-        Doctor doctor = doctorList.get(position);
-        int id = doctor.getId();
-        if(dbDoctor.deleteDoctor(id)){
-            adapter.removeItem(doctor);
-        }
+    public void onResume() {
+        super.onResume();
 
+        actionBar.setTitle("Doctors List");
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        getFragmentManager().beginTransaction().replace(R.id.main_container,new AddDoctorFragment())
+                .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).addToBackStack(null).commit();
     }
 }

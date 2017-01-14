@@ -1,16 +1,19 @@
 package com.baudiabatash.hospital.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Sohel on 1/3/2017.
  */
 
-public class Patient {
+public class Patient implements Serializable{
 
     private int id;
     private String patient_id;
     private String admission_date;
     private String patient_name;
     private String guardian_name;
+    private String contact;
     private String address;
     private int ref_doctor_id;
     private int allocated_cabin_id;
@@ -19,11 +22,24 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String patient_id, String admission_date, String patient_name, String guardian_name, String address, int ref_doctor_id, int allocated_cabin_id) {
+    public Patient(String patient_id, String admission_date, String patient_name, String guardian_name, String contact,String address, int ref_doctor_id, int allocated_cabin_id) {
         this.patient_id = patient_id;
         this.admission_date = admission_date;
         this.patient_name = patient_name;
         this.guardian_name = guardian_name;
+        this.contact = contact;
+        this.address = address;
+        this.ref_doctor_id = ref_doctor_id;
+        this.allocated_cabin_id = allocated_cabin_id;
+    }
+
+    public Patient(int id, String patient_id, String admission_date, String patient_name, String guardian_name, String contact,String address, int ref_doctor_id, int allocated_cabin_id) {
+        this.id = id;
+        this.patient_id = patient_id;
+        this.admission_date = admission_date;
+        this.patient_name = patient_name;
+        this.guardian_name = guardian_name;
+        this.contact = contact;
         this.address = address;
         this.ref_doctor_id = ref_doctor_id;
         this.allocated_cabin_id = allocated_cabin_id;
@@ -35,6 +51,14 @@ public class Patient {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public int getRef_doctor_id() {

@@ -12,7 +12,10 @@
     <color name="color_card_back">#eeeeee</color>
     <color name="card_heading_color">#7E57C2</color>
 
+    <color name="patient_info_back_color">#8C9EFF</color>
+
     <color name="color_delete">#FF5722</color>
     <color name="color_update">#689F38</color>
     <color name="my_color_bg">#7E57C2</color>
+    <color name="fab_color">#68EFAD</color>
 </resources>

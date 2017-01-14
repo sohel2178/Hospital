@@ -11,6 +11,9 @@
     <string name="icon_calendar">{fa-calendar}</string>
     <string name="icon_check">{fa-check-circle-o}</string>
     <string name="icon_times">{fa-times-circle-o}</string>
+    <string name="icon_delete">{fa-trash}</string>
+    <string name="icon_release">{fa-certificate}</string>
+    <string name="icon_update">{fa-pencil}</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

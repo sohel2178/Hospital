@@ -102,100 +102,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/divider"/>
 
-        <LinearLayout
-            android:padding="8dp"
-            android:id="@+id/add_patient"
-            android:clickable="true"
-            android:background="@drawable/custom_bg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <com.joanzapata.iconify.widget.IconTextView
-                android:layout_width="@dimen/nav_icon_dim"
-                android:layout_height="@dimen/nav_icon_dim"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:text="@string/icon_add"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_gravity="center_vertical"
-                android:text="Add Patient"
-                android:textAllCaps="true"/>
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/divider"/>
-
-        <LinearLayout
-            android:padding="8dp"
-            android:id="@+id/add_doctor"
-            android:clickable="true"
-            android:background="@drawable/custom_bg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.joanzapata.iconify.widget.IconTextView
-                android:layout_width="@dimen/nav_icon_dim"
-                android:layout_height="@dimen/nav_icon_dim"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:textColor="@color/my_color"
-                android:text="@string/icon_add"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_gravity="center_vertical"
-                android:text="Add Doctor"
-                android:textAllCaps="true"/>
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/divider"/>
-
-        <LinearLayout
-            android:padding="8dp"
-            android:id="@+id/add_cabin"
-            android:clickable="true"
-            android:background="@drawable/custom_bg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.joanzapata.iconify.widget.IconTextView
-                android:layout_width="@dimen/nav_icon_dim"
-                android:layout_height="@dimen/nav_icon_dim"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:textColor="@color/color_red"
-                android:text="@string/icon_add"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_gravity="center_vertical"
-                android:text="Add Cabin"
-                android:textAllCaps="true"/>
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/divider"/>
 
         <LinearLayout
             android:padding="8dp"
@@ -252,6 +160,39 @@
                 android:layout_marginLeft="8dp"
                 android:layout_gravity="center_vertical"
                 android:text="Cabin List"
+                android:textAllCaps="true"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/divider"/>
+
+
+        <LinearLayout
+            android:padding="8dp"
+            android:id="@+id/release_list"
+            android:clickable="true"
+            android:background="@drawable/custom_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.joanzapata.iconify.widget.IconTextView
+                android:layout_width="@dimen/nav_icon_dim"
+                android:layout_height="@dimen/nav_icon_dim"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textColor="@color/my_color"
+                android:text="@string/icon_list"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_gravity="center_vertical"
+                android:text="Release List"
                 android:textAllCaps="true"/>
 
         </LinearLayout>

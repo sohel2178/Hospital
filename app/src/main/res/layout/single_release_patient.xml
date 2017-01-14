@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="@drawable/back"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:id="@+id/patient_name"
+        android:text="Patient Name"
+        android:textColor="@color/my_color"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/patient_id"
+        android:text="Patient ID"
+        android:textColor="@color/my_color"
+        android:textSize="18sp"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/divider"
+        android:layout_below="@+id/patient_name"
+        android:id="@+id/divider"/>
+
+    <LinearLayout
+        android:padding="8dp"
+        android:background="@color/patient_info_back_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/divider"
+        android:id="@+id/info_container">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:textColor="@color/text_color_white"
+                android:text="Guardian Name"/>
+
+            <TextView
+                android:padding="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:textColor="@color/text_color_white"
+                android:id="@+id/guardian_name"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:textColor="@color/text_color_white"
+                android:text="Contact"/>
+
+            <TextView
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:textColor="@color/text_color_white"
+                android:id="@+id/contact"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:text="Address"/>
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:id="@+id/address"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:text="Admitted On"/>
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:id="@+id/admission_date"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:text="Reference Doctor"/>
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:id="@+id/ref_doctor"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:text="Cabin"/>
+
+            <TextView
+                android:textColor="@color/text_color_white"
+                android:padding="6dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:id="@+id/cabin_name"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

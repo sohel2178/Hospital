@@ -42,7 +42,7 @@ public class MyCabinDBAdapter {
     private static final String TABLE_NAME="cabinTable";
 
     // Db Version
-    private static final int DATABASE_VERSION=1;
+    private static final int DATABASE_VERSION=2;
 
     private static final String DATABASE_CREATE_SQL="create table "+TABLE_NAME
             +"("+KEY_ROW_ID+" integer primary key autoincrement, "
@@ -173,7 +173,7 @@ public class MyCabinDBAdapter {
     }
 
 
-    public Cursor getRow(long rowId){
+    private Cursor getRow(long rowId){
         String where = KEY_ROW_ID+"="+rowId;
         Cursor c = db.query(true,TABLE_NAME,ALL_KEYS,where,null,null,null,null,null);
 
@@ -181,6 +181,23 @@ public class MyCabinDBAdapter {
             c.moveToFirst();
         }
         return c;
+    }
+
+    public Cabin getCabin(int id){
+        List<Cabin> cabinList = new ArrayList<>();
+
+        Cursor cursor = getRow(id);
+
+        if(cursor.moveToFirst()){
+            do{
+                Cabin cabin = new Cabin(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3));
+                cabinList.add(cabin);
+
+            }while (cursor.moveToNext());
+        }
+
+        return cabinList.get(0);
+
     }
 
 

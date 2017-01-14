@@ -42,4 +42,9 @@ public class CabinSpinnerAdapter extends ArrayAdapter {
         label.setText(objects.get(position).getName());
         return label;
     }
+
+    public void addCabin(Cabin cabin){
+        objects.add(cabin);
+        notifyDataSetChanged();
+    }
 }

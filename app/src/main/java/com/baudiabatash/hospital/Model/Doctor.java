@@ -14,6 +14,7 @@ public class Doctor implements Serializable {
     private int id;
     private String name;
     private String designation;
+    private String contact;
     private String degree;
     private String organization;
 
@@ -21,17 +22,19 @@ public class Doctor implements Serializable {
     }
 
 
-    public Doctor(String name, String designation, String degree, String organization) {
+    public Doctor(String name, String designation,String contact, String degree, String organization) {
         this.name = name;
         this.designation = designation;
+        this.contact = contact;
         this.degree = degree;
         this.organization = organization;
     }
 
-    public Doctor(int id,String name, String designation, String degree, String organization) {
+    public Doctor(int id,String name, String designation,String contact, String degree, String organization) {
         this.id =id;
         this.name = name;
         this.designation = designation;
+        this.contact = contact;
         this.degree = degree;
         this.organization = organization;
     }
@@ -62,6 +65,14 @@ public class Doctor implements Serializable {
 
     public String getDegree() {
         return degree;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public void setDegree(String degree) {

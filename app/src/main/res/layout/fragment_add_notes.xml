@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.baudiabatash.hospital.DialogFragment.AddNotesFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="Add Notes"
+        android:textColor="@color/text_color_white"
+        android:textSize="20sp" />
+
+    <com.baudiabatash.hospital.CustomView.MyEditText
+        android:id="@+id/notes"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/title"
+        android:layout_margin="8dp"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:hint="Enter Notes" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/notes"
+        android:paddingBottom="4dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/my_color"
+            android:text="cancel"
+            android:textColor="@color/text_color_white" />
+
+        <Button
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@color/my_color"
+            android:text="Add"
+            android:textColor="@color/text_color_white" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

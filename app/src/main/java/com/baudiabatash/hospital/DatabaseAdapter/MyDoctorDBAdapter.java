@@ -24,6 +24,7 @@ public class MyDoctorDBAdapter {
     private static final String KEY_ROW_ID="id";
     private static final String KEY_ROW_NAME="name";
     private static final String KEY_ROW_DESIGNATION="designation";
+    private static final String KEY_ROW_CONTACT="contact";
     private static final String KEY_ROW_DEGREE="degree";
     private static final String KEY_ROW_ORGANIZATION="organization";
 
@@ -34,19 +35,20 @@ public class MyDoctorDBAdapter {
     private static final int COL_ROW_DEGREE=3;
     private static final int COL_ROW_ORGANIZATION=4;
 
-    private static final String[] ALL_KEYS={KEY_ROW_ID,KEY_ROW_NAME,KEY_ROW_DESIGNATION,KEY_ROW_DEGREE,KEY_ROW_ORGANIZATION};
+    private static final String[] ALL_KEYS={KEY_ROW_ID,KEY_ROW_NAME,KEY_ROW_DESIGNATION,KEY_ROW_CONTACT,KEY_ROW_DEGREE,KEY_ROW_ORGANIZATION};
 
     // Db Name and Table Name
     private static final String DB_NAME="doctorsDb";
     private static final String TABLE_NAME="doctorsTable";
 
     // Db Version
-    private static final int DATABASE_VERSION=1;
+    private static final int DATABASE_VERSION=2;
 
     private static final String DATABASE_CREATE_SQL="create table "+TABLE_NAME
             +"("+KEY_ROW_ID+" integer primary key autoincrement, "
             +KEY_ROW_NAME+" string not null, "
             +KEY_ROW_DESIGNATION+" string not null, "
+            +KEY_ROW_CONTACT+" string not null, "
             +KEY_ROW_DEGREE+" string not null, "
             +KEY_ROW_ORGANIZATION+" string not null"
             +");";
@@ -72,10 +74,11 @@ public class MyDoctorDBAdapter {
 
     // inserting a single Row Data
 
-    public long insertRow(String name,String designation,String degree, String organization){
+    public long insertRow(String name,String designation,String contact,String degree, String organization){
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_ROW_NAME,name);
         contentValues.put(KEY_ROW_DESIGNATION,designation);
+        contentValues.put(KEY_ROW_CONTACT,contact);
         contentValues.put(KEY_ROW_DEGREE,degree);
         contentValues.put(KEY_ROW_ORGANIZATION,organization);
 
@@ -84,7 +87,7 @@ public class MyDoctorDBAdapter {
 
     // Insert Direct Object
     public long insertRow(Doctor doctor){
-        return insertRow(doctor.getName(),doctor.getDesignation(),doctor.getDegree(),doctor.getOrganization());
+        return insertRow(doctor.getName(),doctor.getDesignation(),doctor.getContact(),doctor.getDegree(),doctor.getOrganization());
     }
 
     public boolean deleteDoctor(int id){
@@ -114,7 +117,7 @@ public class MyDoctorDBAdapter {
 
         if(cursor.moveToFirst()){
             do{
-                Doctor doctor = new Doctor(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4));
+                Doctor doctor = new Doctor(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5));
                 doctorList.add(doctor);
 
             }while (cursor.moveToNext());
@@ -139,6 +142,25 @@ public class MyDoctorDBAdapter {
     }
 
 
+    public Doctor getDoctor(int id){
+        List<Doctor> doctorList = new ArrayList<>();
+
+        Cursor cursor = getRow(id);
+
+        if(cursor.moveToFirst()){
+            do{
+                Doctor doctor = new Doctor(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5));
+                doctorList.add(doctor);
+
+            }while (cursor.moveToNext());
+        }
+
+        return doctorList.get(0);
+
+
+    }
+
+
     public Cursor getRow(long rowId){
         String where = KEY_ROW_ID+"="+rowId;
         Cursor c = db.query(true,TABLE_NAME,ALL_KEYS,where,null,null,null,null,null);
@@ -150,12 +172,13 @@ public class MyDoctorDBAdapter {
     }
 
 
-    public boolean updateRow(long id,String name, String designation,String degree, String organization){
+    public boolean updateRow(long id,String name, String designation,String contact,String degree, String organization){
         String where= KEY_ROW_ID+"="+id;
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(KEY_ROW_NAME,name);
         contentValues.put(KEY_ROW_DESIGNATION,designation);
+        contentValues.put(KEY_ROW_CONTACT,contact);
         contentValues.put(KEY_ROW_DEGREE,degree);
         contentValues.put(KEY_ROW_ORGANIZATION,organization);
 

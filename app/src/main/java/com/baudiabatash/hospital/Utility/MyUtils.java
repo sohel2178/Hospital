@@ -3,6 +3,8 @@ package com.baudiabatash.hospital.Utility;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
@@ -65,5 +67,11 @@ public class MyUtils {
         },mYear,mMonth,mDay);
         datePickerDialog.show();
         datePickerDialog.setTitle("Pick a Date");
+    }
+
+
+    public static void hideKey(View view){
+        InputMethodManager imm = (InputMethodManager)view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

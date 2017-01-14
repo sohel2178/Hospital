@@ -5,58 +5,80 @@
     android:padding="16dp"
     tools:context="com.baudiabatash.hospital.Navigation.AddDoctorFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
-        android:background="@drawable/text_back"
-        android:layout_centerHorizontal="true"
-        android:text="Add Doctor Form"
-        android:textSize="20sp"
-        android:textColor="@color/my_color"/>
-
-    <com.baudiabatash.hospital.CustomView.MyEditText
-        android:layout_marginTop="10dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_below="@+id/title"
-        android:hint="Doctor's Name"
-        android:id="@+id/name"/>
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <com.baudiabatash.hospital.CustomView.MyEditText
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_below="@+id/name"
-        android:hint="Doctor's Designation"
-        android:id="@+id/designation"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:background="@drawable/text_back"
+                android:layout_centerHorizontal="true"
+                android:text="Add Doctor Form"
+                android:textSize="20sp"
+                android:textColor="@color/my_color"/>
 
-    <com.baudiabatash.hospital.CustomView.MyEditText
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_below="@+id/designation"
-        android:hint="Doctor's Degree"
-        android:id="@+id/degree"/>
+            <com.baudiabatash.hospital.CustomView.MyEditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@+id/title"
+                android:hint="Doctor's Name"
+                android:id="@+id/name"/>
 
-    <com.baudiabatash.hospital.CustomView.MyEditText
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_below="@+id/degree"
-        android:hint="Doctor's Organization"
-        android:id="@+id/organization"/>
+            <com.baudiabatash.hospital.CustomView.MyEditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@+id/name"
+                android:hint="Doctor's Designation"
+                android:id="@+id/designation"/>
+
+            <com.baudiabatash.hospital.CustomView.MyEditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@+id/designation"
+                android:hint="Contact"
+                android:id="@+id/contact"/>
+
+            <com.baudiabatash.hospital.CustomView.MyEditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@+id/contact"
+                android:hint="Doctor's Degree"
+                android:id="@+id/degree"/>
+
+            <com.baudiabatash.hospital.CustomView.MyEditText
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_below="@+id/degree"
+                android:hint="Doctor's Organization"
+                android:id="@+id/organization"/>
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/add"
+                android:layout_below="@id/organization"
+                android:backgroundTint="@color/my_color"
+                android:text="Add"
+                android:textColor="@color/text_color_white"/>
+
+        </RelativeLayout>
+    </ScrollView>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/add"
-        android:layout_below="@id/organization"
-        android:background="@color/colorPrimary"
-        android:text="Add"
-        android:textColor="@color/text_color_white"/>
+
+
 
 
 

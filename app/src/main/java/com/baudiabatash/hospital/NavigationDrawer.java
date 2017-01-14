@@ -23,6 +23,8 @@ import com.baudiabatash.hospital.Navigation.AddDoctorFragment;
 import com.baudiabatash.hospital.Navigation.AddPatientFragment;
 import com.baudiabatash.hospital.Navigation.CabinListFragment;
 import com.baudiabatash.hospital.Navigation.DoctorListFragment;
+import com.baudiabatash.hospital.Navigation.HomeFragment;
+import com.baudiabatash.hospital.Navigation.ReleaseFragment;
 import com.baudiabatash.hospital.Utility.Constant;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
@@ -46,7 +48,7 @@ public class NavigationDrawer extends Fragment implements View.OnClickListener {
 
     private View containerView;
 
-    private LinearLayout rlAddPatient,rlAddDoctor,rlAllDoctors,rlAddCabin,rlCabinList;
+    private LinearLayout rlHome,rlAllDoctors,rlCabinList,rlReleaseList;
 
 
 
@@ -87,11 +89,10 @@ public class NavigationDrawer extends Fragment implements View.OnClickListener {
     }
 
     private void initView(View view) {
-        rlAddPatient = (LinearLayout) view.findViewById(R.id.add_patient);
-        rlAddDoctor = (LinearLayout) view.findViewById(R.id.add_doctor);
+        rlHome = (LinearLayout) view.findViewById(R.id.home);
         rlAllDoctors = (LinearLayout) view.findViewById(R.id.doctor_list);
-        rlAddCabin = (LinearLayout) view.findViewById(R.id.add_cabin);
         rlCabinList = (LinearLayout) view.findViewById(R.id.cabin_list);
+        rlReleaseList = (LinearLayout) view.findViewById(R.id.release_list);
     }
 
 
@@ -99,11 +100,10 @@ public class NavigationDrawer extends Fragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        rlAddPatient.setOnClickListener(this);
-        rlAddDoctor.setOnClickListener(this);
+        rlHome.setOnClickListener(this);
         rlAllDoctors.setOnClickListener(this);
-        rlAddCabin.setOnClickListener(this);
         rlCabinList.setOnClickListener(this);
+        rlReleaseList.setOnClickListener(this);
 
 
     }
@@ -177,19 +177,13 @@ public class NavigationDrawer extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
 
         switch (view.getId()){
-            case R.id.add_patient:
+
+            case R.id.home:
                 mDrawerLayout.closeDrawer(GravityCompat.START);
-                getFragmentManager().beginTransaction().replace(R.id.main_container,new AddPatientFragment())
+                getFragmentManager().beginTransaction().replace(R.id.main_container,new HomeFragment())
                         .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).commit();
                 break;
 
-
-            case R.id.add_doctor:
-                mDrawerLayout.closeDrawer(GravityCompat.START);
-
-                getFragmentManager().beginTransaction().replace(R.id.main_container,new AddDoctorFragment())
-                        .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).commit();
-                break;
 
             case R.id.doctor_list:
                 mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -198,17 +192,18 @@ public class NavigationDrawer extends Fragment implements View.OnClickListener {
                         .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).commit();
                 break;
 
-            case R.id.add_cabin:
-                mDrawerLayout.closeDrawer(GravityCompat.START);
-
-                AddCabinFragment addCabinFragment = new AddCabinFragment();
-                addCabinFragment.show(getFragmentManager(), Constant.DEFAULAT_FRAGMENT_TAG);
-                break;
 
             case R.id.cabin_list:
                 mDrawerLayout.closeDrawer(GravityCompat.START);
 
                 getFragmentManager().beginTransaction().replace(R.id.main_container,new CabinListFragment())
+                        .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).commit();
+                break;
+
+            case R.id.release_list:
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+
+                getFragmentManager().beginTransaction().replace(R.id.main_container,new ReleaseFragment())
                         .setCustomAnimations(R.anim.enter_from_top,R.anim.exit_to_bottom).commit();
                 break;
         }
