@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.TelephonyManager;
@@ -39,6 +41,8 @@ import java.util.List;
 public class HomeFragment extends Fragment implements
         PatientAdapter.PatientClickListener,View.OnClickListener{
 
+    private ActionBar actionBar;
+
     private RecyclerView recyclerView;
 
     private FloatingActionButton fabAdd;
@@ -62,6 +66,8 @@ public class HomeFragment extends Fragment implements
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
 
 
 
@@ -90,6 +96,12 @@ public class HomeFragment extends Fragment implements
         dbCabin.open();
         dbDoctor.open();
         dbReleasePatient.open();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        actionBar.setTitle("Home");
     }
 
     @Override
